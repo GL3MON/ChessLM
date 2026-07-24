@@ -1,0 +1,6 @@
+outputs/
+data/
+.claude/
+__pycache__/
+wandb/
+bin/

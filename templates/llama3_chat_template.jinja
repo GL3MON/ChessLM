@@ -1,0 +1,10 @@
+{% if not add_generation_prompt is defined %}
+{% set add_generation_prompt = false %}
+{% endif %}
+{% if messages[0]['role'] == 'system' %}
+{{ '<|start_header_id|>system<|end_header_id|>\n\n' + messages[0]['content'] + '<|eot_id|>' }}
+{% set messages = messages[1:] %}
+{% endif %}
+{% for message in messages %}
+{{ '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n' + message['content'].strip() + '<|eot_id|>' }}
+{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' if add_generation_prompt else '' }}
