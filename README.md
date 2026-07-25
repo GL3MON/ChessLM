@@ -2,6 +2,15 @@
 
 Fine-tuning Qwen-3.5-2B for chess move prediction using Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) with Stockfish as the reward signal.
 
+## Pre-trained Models
+
+**Hugging Face**: [GL3MON/Qwen3.5-2B-chess-finetuned](https://huggingface.co/GL3MON/Qwen3.5-2B-chess-finetuned)
+
+- **SFT Checkpoint**: [checkpoint-5940](https://huggingface.co/GL3MON/Qwen3.5-2B-chess-finetuned/tree/main)
+- **RL GRPO Checkpoint**: [checkpoint-2475](https://huggingface.co/GL3MON/Qwen3.5-2B-chess-rl-grpo/tree/main)
+
+See the [RL RECIPE](./RL_RECIPE.md) for training details.
+
 ## Project Structure
 
 ```
@@ -51,10 +60,39 @@ tar -xf stockfish.tar
 mv stockfish-ubuntu-x86-64-avx2 bin/stockfish
 ```
 
-### 3. Login to Hugging Face
+### 3. Login to Hugging Face (for training only)
 
 ```bash
-huggingface-cli login
+hf auth login
+```
+
+### 4. Using Pre-trained Models (Inference)
+
+To use the pre-trained model without training:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+# Load from Hugging Face
+model_name = "GL3MON/Qwen3.5-2B-chess-finetuned"
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.bfloat16,
+    device_map="auto"
+)
+
+# Generate chess moves
+messages = [
+    {"role": "system", "content": "You are a chess assistant."},
+    {"role": "user", "content": "What is the best move for white in e2e4?"}
+]
+
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to(model.device)
+outputs = model.generate(input_ids, max_new_tokens=50)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
 ## Training Pipeline
