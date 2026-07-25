@@ -1,6 +1,6 @@
 # ChessLM - Qwen-3.5-2B Chess Assistant
 
-Fine-tuning Qwen-3.5-2B for chess move prediction using Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) with Stockfish as the reward signal.
+Fine-tuning Qwen-3.5-2B for chess move prediction using Supervised Fine-Tuning (SFT) and Reinforcement Learning (GRPO) with Stockfish as the reward signal.
 
 ## Pre-trained Models
 
