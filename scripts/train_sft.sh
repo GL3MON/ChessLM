@@ -8,7 +8,7 @@ set -e
 cd /hfcache/harissh/ChessLM
 
 # W&B Configuration
-export WANDB_API_KEY="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"
+export WANDB_API_KEY="WANDB_API_KEY"
 export WANDB_PROJECT="chesslm"
 
 # Configuration

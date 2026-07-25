@@ -17,7 +17,7 @@ RUN_NAME="qwen-3.5-2b-rl-grpo-beta-0.1-lr-1e-6-chk-5940"
 OUTPUT_DIR="./outputs/${RUN_NAME}"
 
 # W&B Configuration
-export WANDB_API_KEY="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"
+export WANDB_API_KEY="WANDB_API_KEY"
 export WANDB_PROJECT="chesslm"
 export WANDB_RUN_GROUP="rl-grpo"
 export WANDB_NAME="$RUN_NAME"
