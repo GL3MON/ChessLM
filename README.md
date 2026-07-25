@@ -11,9 +11,6 @@ Fine-tuning Qwen-3.5-2B for chess move prediction using Supervised Fine-Tuning (
 | Qwen3.5-2B-chess-finetuned | SFT checkpoint trained on ChessInstruct | Supervised Fine-Tuning |
 | Qwen3.5-2B-chess-rl-grpo | RL fine-tuned using GRPO with Stockfish reward | Reinforcement Learning |
 
-- **SFT Checkpoint**: [checkpoint-5940](https://huggingface.co/GL3MON/Qwen3.5-2B-chess-finetuned/tree/main)
-- **RL GRPO Checkpoint**: [checkpoint-2475](https://huggingface.co/GL3MON/Qwen3.5-2B-chess-rl-grpo/tree/main)
-
 See the [RL RECIPE](./RL_RECIPE.md) for training details.
 
 ## Project Structure
