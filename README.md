@@ -137,10 +137,6 @@ python scripts/split_dataset.py \
 - **RL**: Uses GRPO with Stockfish depth=10-15, 4 samples per prompt
 - **Precision**: BF16 for training
 
-## Logging
-
-Training logs are tracked with Weights & Biases (W&B) under the `chesslm` project.
-
 ## License
 
 MIT License
