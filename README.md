@@ -4,7 +4,7 @@ Fine-tuning Qwen-3.5-2B for chess move prediction using Supervised Fine-Tuning (
 
 ## Pre-trained Models
 
-**Hugging Face Collection**: [ChessLM](https://huggingface.co/collections/GL3MON/chesslm)
+**Hugging Face Collection**: [ChessLM](https://huggingface.co/collections/GL3MON/qwen-chesslm)
 
 | Model | Description | Type |
 |-------|-------------|------|
